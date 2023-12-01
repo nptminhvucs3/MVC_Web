@@ -135,6 +135,7 @@
     <Compile Include="Areas\Admin\Controllers\NguoiDungController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhaSanXuatController.cs" />
     <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
+    <Compile Include="Areas\User\Controllers\CartController.cs" />
     <Compile Include="Areas\User\Controllers\HomeUController.cs" />
     <Compile Include="Areas\User\Controllers\LoginController.cs" />
     <Compile Include="Areas\User\Controllers\LogOutController.cs" />
@@ -2237,6 +2238,7 @@
     <Content Include="Areas\Admin\Views\ChiTietHoaDon\Update.cshtml" />
     <Content Include="Areas\Admin\Views\ChiTietHoaDon\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ChiTietHoaDon\Delete.cshtml" />
+    <Content Include="Areas\User\Views\Cart\Index.cshtml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
