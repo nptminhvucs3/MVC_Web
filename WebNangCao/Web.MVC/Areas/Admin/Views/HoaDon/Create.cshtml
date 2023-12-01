@@ -1,0 +1,54 @@
+﻿@model Web.MVC.Models.HoaDon
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage.cshtml";
+    var NguoiMuaSelectList = ViewBag.NguoiMuaSelectList as SelectList;
+
+}
+
+<div style="width: 100%; height: 100%; padding: 10px">
+    <h2>Thêm Hoá Đơn</h2>
+    @using (Html.BeginForm("Create", "HoaDon", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <h4>Hoá Đơn</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label class="control-label col-md-2"> Ngày Tạo: </label>
+                <div class="col-md-10">
+                    <input name="NgayTao" class="form-control" type="date" />
+                    @Html.ValidationMessageFor(model => model.NgayTao, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2"> Thanh Toán </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ThanhToan, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ThanhToan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2"> Tên khách hàng: </label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.NguoiMua, NguoiMuaSelectList, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.NguoiMua, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-success" />
+                    @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+

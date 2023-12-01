@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Web.MVC.Models.HoaDon>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div style="width: 100%; height: 100%; padding: 10px">
+    <h3>Danh Sách Hoá Đơn</h3>
+    <table class="table">
+        <tr>
+            <th>
+                Ngày Tạo
+            </th>
+            <th>
+                Thanh Toán
+            </th>
+            <th>
+                Người Mua
+            </th>
+            <th>
+                Chức Năng
+            </th>
+
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayTao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThanhToan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NguoiDung.Ten)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Update", "HoaDon", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Xóa", "Delete", "HoaDon", new { id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+        </table>
+        <p>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+        </p>
+</div>
+

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Web.MVC.Models.NhaSanXuat>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div style="width: 100%; height: 100%; padding: 10px">
+    <h3>Danh Sách Người Dùng</h3>
+    <table class="table">
+        <tr>
+            <th>
+                Tên Nhà Xuất Bản
+            </th>
+            <th>
+                Mô Tả
+            </th>
+            <th>
+                Chức Năng
+            </th>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenNSX)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoTa)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Update", "NhaSanXuat", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Xóa", "Delete", "NhaSanXuat", new { id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+        </table>
+        <p>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+        </p>
+    </div>

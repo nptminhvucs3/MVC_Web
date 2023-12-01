@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Web.MVC.Models.ChiTietHoaDon>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div style="width: 100%; height: 100%; padding: 10px">
+    <h3>Chi Tiết Hoá Đơn</h3>
+    <table class="table">
+        <tr>
+            <th>
+                Số Lượng
+            </th>
+            <th>
+                Đơn Giá
+            </th>
+            <th>
+                Giảm Giá
+            </th>
+            <th>
+                IDHoaDon
+            </th>
+            <th>
+                TenSanPham
+            </th>
+            <th>
+                Chức Năng
+            </th>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonGia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GiamGia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoaDon.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SanPham.TenSP)
+                </td>
+                 |
+                <td>
+                    @Html.ActionLink("Sửa", "Update", "ChiTietHoaDon", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Xóa", "Delete", "ChiTietHoaDon", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+        </table>
+        <p>
+            @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-success" })
+        </p>
+    </div>
